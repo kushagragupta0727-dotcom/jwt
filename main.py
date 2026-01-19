@@ -29,7 +29,7 @@ def getdb():
 
 @app.get("/")
 def greet():
-    return "JWT Authentication Service Running"
+    return "JWT Authentication "
 
 @app.post("/register")
 def register(user: UserCreate, db: Session = Depends(getdb)):
@@ -105,6 +105,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
 @app.get("/protected")
 def protected(user: str = Depends(get_current_user)):
     return {"message": f"Hello {user}"}
+
 
 
 
